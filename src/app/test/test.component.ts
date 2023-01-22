@@ -7,21 +7,29 @@ import { environment } from '../environments/environment';
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent {
-  song: any;
+  songs: any;
+  country: string = 'spain';
 
-  async ngOnInit() {
+  onCountrySelection(event: any) {
+    this.country = event.target.value;
+    this.fetchData();
+  }
+
+  async fetchData() {
     const apiKey = environment.apiKey;
     const artist = 'Kim Petras';
     const track = 'brrr';
-    const country = 'spain';
-    const url = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${country}&api_key=${apiKey}&page=1&limit=10&format=json`;
+    const url = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${this.country}&api_key=${apiKey}&page=1&limit=10&format=json`;
     try {
       const response = await fetch(url);
       const data = await response.json();
-      this.song = data.track;
-      console.log(data);
+      this.songs = data.topartists.artist;
+      console.log(this.songs);
     } catch (error) {
       console.error(error);
     }
+  }
+  async ngOnInit() {
+    this.fetchData();
   }
 }
