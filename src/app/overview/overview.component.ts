@@ -3,10 +3,10 @@ import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css'],
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.css'],
 })
-export class TestComponent {
+export class OverviewComponent {
   songs: any;
   country: string = 'spain';
   mbid: any;
