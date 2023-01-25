@@ -1,7 +1,7 @@
 /* Add some styling for the header */
 header {
-  background-color: #333;
-  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.452), rgb(255, 255, 255));
+
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -9,25 +9,22 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
+  margin-bottom: 2rem;
 }
 
 /* Add some hover effect to the links in the header */
 header a {
-  color: #fff;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
 header a:hover {
-  color: #f1f1f1;
   transform: scale(1.05);
 }
 
 /* Add a nice drop shadow to the header */
 header {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 50px;
-  border-radius: 5px;
 }
 
 /* Add some hover effect for the logo */
@@ -42,6 +39,10 @@ header {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 5px;
-
   margin-inline: auto;
+  color: rgba(0, 0, 0, 0.753);
+}
+.country {
+  color: red;
+  height: 20px;
 }

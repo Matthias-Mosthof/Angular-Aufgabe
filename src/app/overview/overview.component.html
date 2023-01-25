@@ -1,14 +1,25 @@
-<select name="Country" id="country" (change)="onCountrySelection($event)">
-  <option value="spain">spain</option>
-  <option value="germany">germany</option>
-  <option value="france">france</option>
-  <option value="netherlands">nethlerlands</option>
-  <option value="poland">poland</option>
-</select>
+<div class="wrapper">
+  <p>Please Choose a Country</p>
+  <select
+    name="Country"
+    class="country"
+    id="country"
+    (change)="onCountrySelection($event)"
+    [(ngModel)]="selectedCountry"
+  >
+    <option value="spain">spain</option>
+    <option value="germany">germany</option>
+    <option value="france">france</option>
+    <option value="netherlands">nethlerlands</option>
+    <option value="poland">poland</option>
+  </select>
+</div>
 
-<div *ngFor="let song of songs">
-  <h2>{{ song.name }}</h2>
-  <p>{{ song.listeners }}</p>
-  <img src="{{ song.image[1]['#text'] }}" alt="song image" />
-  <a href="/details/{{ song.mbid }}">Click here to see more artists Info</a>
+<h1>These are the current top 10 Artists in {{ selectedCountry }}</h1>
+<div *ngFor="let artist of artists">
+  <div class="artist-wrapper" [routerLink]="['/details', artist.mbid]">
+    <h2>{{ artist.name }}</h2>
+    <p>Monthly Listeners: {{ artist.listeners }}</p>
+    <a href="/details/{{ artist.mbid }}">Click here to see more artists Info</a>
+  </div>
 </div>

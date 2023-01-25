@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,10 @@ import { environment } from '../environments/environment';
   styleUrls: ['./overview.component.css'],
 })
 export class OverviewComponent {
-  songs: any;
+  artists: any;
   country: string = 'spain';
   mbid: any;
+  selectedCountry: string = 'spain';
 
   onCountrySelection(event: any) {
     this.country = event.target.value;
@@ -21,11 +23,11 @@ export class OverviewComponent {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      this.songs = data.topartists.artist;
+      this.artists = data.topartists.artist;
       this.mbid = data.topartists.artist.map((artist: any) => {
         return artist.mbid;
       });
-      console.log(this.songs);
+      console.log(this.artists);
       console.log(this.mbid);
     } catch (error) {
       console.error(error);

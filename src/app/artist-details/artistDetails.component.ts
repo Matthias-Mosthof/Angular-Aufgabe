@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistDetailsComponent {
   mbid: any;
+  artist: any;
 
   constructor(private route: ActivatedRoute) {}
   async getArtistInfo() {
@@ -19,6 +20,7 @@ export class ArtistDetailsComponent {
     const data = await response.json();
     console.log(this.mbid);
     console.log(data);
+    this.artist = data.artist;
   }
 
   async ngOnInit() {
