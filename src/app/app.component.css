@@ -1,4 +1,3 @@
-/* Add some styling for the header */
 header {
   background: linear-gradient(rgba(14, 14, 14, 0.452), rgb(0, 0, 0));
 
@@ -12,7 +11,6 @@ header {
   margin-bottom: 2rem;
 }
 
-/* Add some hover effect to the links in the header */
 header a {
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -22,20 +20,17 @@ header a:hover {
   transform: scale(1.05);
 }
 
-/* Add a nice drop shadow to the header */
 header {
   height: 50px;
   display: flex;
   flex-direction: column;
 }
 
-/* Add some hover effect for the logo */
 .logo:hover {
   transform: rotate(360deg);
   transition: all 0.5s ease-in-out;
 }
 
-/* Style the logo */
 .logo {
   font-size: 2rem;
   font-weight: bold;

@@ -19,8 +19,6 @@ export class comparison {
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
-
   async searchLeft() {
     const apiKey = environment.apiKey;
     if (this.leftSearch) {

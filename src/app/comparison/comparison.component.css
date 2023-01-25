@@ -32,22 +32,6 @@ input {
   margin-top: 20px;
 }
 
-.artist-detail img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-.artist-detail h2 {
-  margin-bottom: 10px;
-}
-
-.artist-detail p {
-  margin-bottom: 10px;
-}
-
 li {
   list-style-type: none;
   padding: 10px;
