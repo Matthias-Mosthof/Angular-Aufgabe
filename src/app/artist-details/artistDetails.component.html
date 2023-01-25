@@ -2,12 +2,41 @@
 
 <div class="wrapper">
   <p class="artist-info">Name: {{ artist?.name }}</p>
+  <p [innerHTML]="artist?.bio.summary"></p>
+  <p class="artist-info">
+    <a href="{{ artist?.url }}">
+      Click here to {{ artist?.name }} official LastFM Page</a
+    >
+  </p>
+  <p class="artist-info">
+    <a href="{{ artist?.bio.links.link.href }}">
+      Click here to {{ artist?.name }} official LastFM Wiki entry</a
+    >
+  </p>
+
+  <!--
+ Nach Recherche habe ich herausgefunden das die LastFM APi keine Bilder 
+ mehr provided. Jedes hinterlegte Bild ist ein weißer Stern. (Platzhalter)
+  <img
+    src="{{ artist?.image[1]['#text'] }}"
+    alt="image of
+  {{ artist?.name }}"
+  />
+  -->
   <p class="artist-info">Listeners: {{ artist?.stats.listeners }}</p>
   <p class="artist-info">Playcount: {{ artist?.stats.playcount }}</p>
-  <div class="tags">Tags:</div>
-  <ul class="artist-info" *ngFor="let tag of artist?.tags.tag">
-    <li>
-      <a href="https://www.last.fm/tag/{{ tag.name }}">{{ tag.name }}</a>
-    </li>
-  </ul>
+  <div class="">
+    Similar Artists:
+    <ul class="" *ngFor="let artist of artist?.similar.artist">
+      <li>{{ artist.name }}</li>
+    </ul>
+  </div>
+  <div class="tags">
+    Tags:
+    <ul class="artist-info" *ngFor="let tag of artist?.tags.tag">
+      <li>
+        <a href="https://www.last.fm/tag/{{ tag?.name }}">{{ tag?.name }}</a>
+      </li>
+    </ul>
+  </div>
 </div>
