@@ -28,8 +28,6 @@ export class OverviewComponent {
       this.mbid = data.topartists.artist.map((artist: any) => {
         return artist.mbid;
       });
-      console.log(this.artists);
-      console.log(this.mbid);
     } catch (error) {
       console.error(error);
     }
@@ -41,7 +39,6 @@ export class OverviewComponent {
       const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&mbid=${id}&api_key=${apiKey}&format=json`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data.artist);
     }
   }
   async ngOnInit() {

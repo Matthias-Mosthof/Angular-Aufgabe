@@ -54,7 +54,6 @@ export class comparison {
     this.showLeftDetails = true;
     this.artist1 = data.artist;
     this.leftResults = null;
-    console.log(this.artist1);
   }
   async selectRight(mbid: string) {
     const apiKey = environment.apiKey;
