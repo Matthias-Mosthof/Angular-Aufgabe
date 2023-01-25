@@ -1,3 +1,11 @@
+<div class="search-wrapper">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search for an artist"
+  />
+</div>
+
 <div class="wrapper">
   <p>Please Choose a Country</p>
   <select
@@ -17,7 +25,11 @@
 
 <h1>These are the current top 10 Artists in {{ selectedCountry }}</h1>
 <div *ngFor="let artist of artists">
-  <div class="artist-wrapper" [routerLink]="['/details', artist.mbid]">
+  <div
+    *ngIf="artist.name.toLowerCase().includes(searchTerm.toLowerCase())"
+    class="artist-wrapper"
+    [routerLink]="['/details', artist.mbid]"
+  >
     <h2>{{ artist.name }}</h2>
     <p>Monthly Listeners: {{ artist.listeners }}</p>
     <a href="/details/{{ artist.mbid }}">Click here to see more artists Info</a>

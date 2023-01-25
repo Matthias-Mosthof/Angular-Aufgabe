@@ -11,7 +11,8 @@ export class OverviewComponent {
   artists: any;
   country: string = 'spain';
   mbid: any;
-  selectedCountry: string = 'spain';
+  selectedCountry: string = 'germany';
+  searchTerm: string = '';
 
   onCountrySelection(event: any) {
     this.country = event.target.value;
