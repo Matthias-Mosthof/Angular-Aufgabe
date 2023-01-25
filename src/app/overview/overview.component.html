@@ -1,37 +1,41 @@
-<div class="search-wrapper">
-  <input
-    type="text"
-    [(ngModel)]="searchTerm"
-    placeholder="Search for an artist"
-  />
-</div>
-
 <div class="wrapper">
-  <p>Please Choose a Country</p>
-  <select
-    name="Country"
-    class="country"
-    id="country"
-    (change)="onCountrySelection($event)"
-    [(ngModel)]="selectedCountry"
-  >
-    <option value="spain">spain</option>
-    <option value="germany">germany</option>
-    <option value="france">france</option>
-    <option value="netherlands">nethlerlands</option>
-    <option value="poland">poland</option>
-  </select>
-</div>
+  <div class="dropdown-wrapper">
+    <p>Please Choose a Country</p>
+    <select
+      name="Country"
+      class="dropdown"
+      id="country"
+      (change)="onCountrySelection($event)"
+      [(ngModel)]="selectedCountry"
+    >
+      <option value="spain">spain</option>
+      <option value="germany">germany</option>
+      <option value="france">france</option>
+      <option value="netherlands">nethlerlands</option>
+      <option value="poland">poland</option>
+    </select>
+  </div>
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      [(ngModel)]="searchTerm"
+      placeholder="Search for an artist"
+    />
+  </div>
 
-<h1>These are the current top 10 Artists in {{ selectedCountry }}</h1>
-<div *ngFor="let artist of artists">
-  <div
-    *ngIf="artist.name.toLowerCase().includes(searchTerm.toLowerCase())"
-    class="artist-wrapper"
-    [routerLink]="['/details', artist.mbid]"
-  >
-    <h2>{{ artist.name }}</h2>
-    <p>Monthly Listeners: {{ artist.listeners }}</p>
-    <a href="/details/{{ artist.mbid }}">Click here to see more artists Info</a>
+  <h1>These are the current top 10 Artists in {{ selectedCountry }}</h1>
+  <div *ngFor="let artist of artists">
+    <div
+      *ngIf="artist.name.toLowerCase().includes(searchTerm.toLowerCase())"
+      class="artist-wrapper"
+      [routerLink]="['/details', artist.mbid]"
+    >
+      <h2>{{ artist.name }}</h2>
+      <p>Monthly Listeners: {{ artist.listeners }}</p>
+      <a href="/details/{{ artist.mbid }}"
+        >Click here to see more artists Info</a
+      >
+    </div>
   </div>
 </div>

@@ -1,18 +1,8 @@
 <h1>Artist Details</h1>
 
 <div class="wrapper">
-  <p class="artist-info">Name: {{ artist?.name }}</p>
+  <h2 class="artist-name">{{ artist?.name }}</h2>
   <p [innerHTML]="artist?.bio.summary"></p>
-  <p class="artist-info">
-    <a href="{{ artist?.url }}">
-      Click here to {{ artist?.name }} official LastFM Page</a
-    >
-  </p>
-  <p class="artist-info">
-    <a href="{{ artist?.bio.links.link.href }}">
-      Click here to {{ artist?.name }} official LastFM Wiki entry</a
-    >
-  </p>
 
   <!--
  Nach Recherche habe ich herausgefunden das die LastFM APi keine Bilder 
@@ -23,20 +13,29 @@
   {{ artist?.name }}"
   />
   -->
-  <p class="artist-info">Listeners: {{ artist?.stats.listeners }}</p>
-  <p class="artist-info">Playcount: {{ artist?.stats.playcount }}</p>
-  <div class="">
-    Similar Artists:
-    <ul class="" *ngFor="let artist of artist?.similar.artist">
-      <li>{{ artist.name }}</li>
-    </ul>
-  </div>
-  <div class="tags">
-    Tags:
-    <ul class="artist-info" *ngFor="let tag of artist?.tags.tag">
-      <li>
-        <a href="https://www.last.fm/tag/{{ tag?.name }}">{{ tag?.name }}</a>
-      </li>
-    </ul>
-  </div>
+  <p class="artist-info">
+    {{ artist?.name }} has {{ artist?.stats.listeners }} monthly listeners and a
+    Playcount of {{ artist?.stats.playcount }} times.
+  </p>
+  <p>
+    To vistit {{ artist?.name }}
+    <a href="{{ artist?.url }}">official LastFM Page click here </a> and to
+    visit the
+    <a href="{{ artist?.bio.links.link.href }}">
+      LastFM Wiki Entry to get even more Info click here!</a
+    >
+  </p>
+
+  <h2>Similar Artists:</h2>
+
+  <ul class="" *ngFor="let artist of artist?.similar.artist">
+    <li>{{ artist.name }}</li>
+  </ul>
+  <h2>Tags:</h2>
+
+  <ul class="artist-info" *ngFor="let tag of artist?.tags.tag">
+    <li>
+      <a href="https://www.last.fm/tag/{{ tag?.name }}">{{ tag?.name }}</a>
+    </li>
+  </ul>
 </div>

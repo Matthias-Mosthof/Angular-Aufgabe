@@ -1,0 +1,49 @@
+<div class="side-by-side-container">
+  <div class="left-side">
+    <input
+      [(ngModel)]="leftSearch"
+      (keyup)="searchLeft()"
+      placeholder="Search for an artist"
+    />
+    <div *ngIf="leftResults">
+      <ul>
+        <li
+          *ngFor="let result of leftResults"
+          (click)="selectLeft(result.mbid)"
+        >
+          {{ result.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="artist-detail" *ngIf="showLeftDetails">
+      <h2>{{ artist1.name }}</h2>
+      <p>Mothly Listeners: {{ artist1.stats.listeners }}</p>
+      <p>Playcount: {{ artist1.stats.playcount }}</p>
+      <p [innerHTML]="artist1.bio.summary"></p>
+    </div>
+  </div>
+  <div class="right-side">
+    <input
+      [(ngModel)]="rightSearch"
+      (keyup)="searchRight()"
+      placeholder="Search for an artist"
+    />
+    <div *ngIf="rightResults">
+      <ul>
+        <li
+          *ngFor="let result of rightResults"
+          (click)="selectRight(result.mbid)"
+        >
+          {{ result.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="artist-detail" *ngIf="showRightDetails">
+      <h2>{{ artist2.name }}</h2>
+
+      <p>Monthly Listeners: {{ artist2.stats.listeners }}</p>
+      <p>Playcount: {{ artist2.stats.playcount }}</p>
+      <p [innerHTML]="artist2.bio.summary"></p>
+    </div>
+  </div>
+</div>

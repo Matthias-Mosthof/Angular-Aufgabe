@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.country {
+.dropdown {
   height: 2rem;
   border-radius: 5px;
 }
@@ -12,6 +12,7 @@
   transition: all 0.2s ease-in-out;
   box-shadow: 0 0 2px rgb(87, 87, 87);
   text-align: center;
+  padding-block: 0.5rem;
 }
 
 .artist-wrapper:hover {
@@ -23,4 +24,14 @@
 h1 {
   text-align: center;
   font-size: 2.5rem;
+}
+
+.search-wrapper {
+  text-align: center;
+  margin-block: 2rem;
+}
+
+.search-input {
+  height: 1.5rem;
+  width: 15rem;
 }

@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: 1.3rem;
+  text-align: center;
+}
